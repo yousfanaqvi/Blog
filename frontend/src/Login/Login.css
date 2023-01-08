@@ -1,0 +1,43 @@
+.Login-container{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: auto;
+    min-height: 300px;
+    background-color: rgb(252, 252, 252, 0.8);
+    padding: 1rem;
+    padding-bottom: 2rem;
+    align-items:center ;
+      /* box-shadow: 40px 40px 200px 10px rgba(114, 107, 107, 0.89); */
+    z-index: 2;
+}
+#login{
+   color: #0F1626;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 1rem;
+
+   
+}
+
+.FpLink{
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 12px;
+    position: relative;
+    margin-top: 3px;
+    color:#5468ff;
+}
+.signupLink{
+    cursor: pointer;
+    color:#5468ff;
+    font-size: 14px;
+}
+
+/* .login-img{
+   position: absolute;
+   top:-50px;
+} */

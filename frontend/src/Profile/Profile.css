@@ -1,0 +1,127 @@
+.profile,.Profile-container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    margin-top:3rem;
+    padding:1rem;
+    position: fixed;
+    justify-content: center;
+    text-align:center;
+}
+.Profile-container{
+    border-top: 1px solid #0F1626;
+}
+#dashboard{
+    position: absolute;
+}
+.profile-avatar-box{
+    width: 150px;
+    height: 150px;
+    margin: 0.5rem;
+    margin-left: 2rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid black;
+    
+}
+#name{
+    font-size: 12px;
+    padding:5px;
+}
+#username{
+    font-size: 10px;
+}
+
+.add-post-btn{
+    position: absolute;
+    background-color: #FF4742;
+    right: 0;
+    margin-right: 2rem;
+}
+/*/////////////////////////////////////////////////*/
+
+.edit-container{
+    display: flex;
+    flex-direction:column ;
+    padding: 4rem;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-content{
+    width:100%;
+    height:100vh;
+    display:grid;
+    grid-template-columns:20% 80% ;
+ 
+}
+
+.edit-form, .changePass-form{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 2rem;
+    align-items: center;
+}
+
+.del-content,.del-desc{
+    text-align: center;
+    padding: 1rem;
+}
+
+.del-btn {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.del-btn:hover,
+.del-btn:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #e67975;
+}
+
+.del-btn:active {
+  opacity: .5;
+}
+@media screen and (max-width:600px){
+    .edit-content{
+        display: flex;
+        flex-direction: column;
+        padding-top: 2rem;
+        
+    }
+    .Profile-container{
+        flex-direction: column;
+    }
+    .profile-avatar-box{
+        width: 100px;
+        height: 100px;
+    }
+}

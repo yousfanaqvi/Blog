@@ -1,0 +1,31 @@
+
+.home-background{
+    background-image: url("../assets/r3.jpg");
+    object-fit: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    /* background-color: aliceblue; */
+
+}
+.home-container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-btn{
+    background-color: aqua;
+    cursor: pointer;
+}
+.signup-btn:hover{
+    background-color: blueviolet;
+}

@@ -1,13 +1,101 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,900&display=swap');
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+:root{
+  --transition: all 400ms ease;
+
+}
+::-webkit-scrollbar{    
+  display: none;
+}
+html {
+  scroll-behavior: smooth;
+  /* overflow: hidden; */
+  height: 100%;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Merriweather', serif;
+  height: 100%;
+}
+.unauthorized{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10rem;
+  align-items: center;
+  text-align: center;
+}
+
+.siginin-btn {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #0F1626;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 8px;
+  min-height: 20px;
+  /* min-width: 0; */
+  outline: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+  width: 100px;
+}
+
+.siginin-btn:disabled {
+  pointer-events: none;
+  background-color:rgb(169, 169, 169,0.7);
+}
+
+.siginin-btn:hover {
+  color: #fff;
+  background-color: #0F1626;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.siginin-btn:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.loading-div{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+}
+@media screen and (max-width:1024px){
+}
+/*.....small devices.... */
+
+@media screen and (max-width:600px){
+
 }
