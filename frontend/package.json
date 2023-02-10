@@ -17,12 +17,17 @@
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.0.0",
+    "browserify-zlib": "^0.2.0",
     "dompurify": "^2.4.1",
     "draft-convert": "^2.1.13",
     "draft-js": "^0.11.7",
     "draft-js-export-html": "^1.4.1",
+    "draft-js-import-html": "^1.4.1",
     "draftjs-to-markdown": "^0.6.0",
+    "fs": "^0.0.1-security",
     "markdown-draft-js": "^2.4.0",
+    "net": "^1.0.2",
+    "node": "^19.6.0",
     "parse": "^3.4.4",
     "quill-delta-to-html": "^0.12.1",
     "quill-image-resize": "^3.0.9",
@@ -41,6 +46,8 @@
     "react-window": "^1.8.7",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
+    "request": "^2.79.0",
+    "showdown": "^2.1.0",
     "stripe": "^9.14.0",
     "styled-components": "^4.0.0",
     "supertokens-auth-react": "^0.24.4",
@@ -81,6 +88,7 @@
     "react-app-rewired": "^2.2.1",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
-    "url": "^0.11.0"
+    "url": "^0.11.0",
+    "webpack": "^5.75.0"
   }
 }

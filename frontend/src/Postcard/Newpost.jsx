@@ -6,7 +6,6 @@ import { EditorState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToRaw } from 'draft-js';
-import draftToMarkdown from 'draftjs-to-markdown';
 import {newPost} from "../store/Newpost"
 import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from '../store/userSlice';
@@ -51,8 +50,7 @@ function Newpost() {
 
     let navigate=useNavigate();
     const { loading,Response,userInfo} = useSelector((state) => state.user);
-    console.log(loading)
-    console.log(Response)
+  
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(userActions.reset());
@@ -64,8 +62,8 @@ function Newpost() {
     const [convertedContent, setConvertedContent] = useState(null);
 
     useEffect(() => {
-        let html = draftToMarkdown(convertToRaw(editorState.getCurrentContent()));
-        setConvertedContent(html)
+        let html = convertToRaw(editorState.getCurrentContent());
+        setConvertedContent(JSON.stringify(html))
         if(Response==="post successful")
         {
             navigate("/profile")
@@ -88,6 +86,7 @@ function Newpost() {
     <div className='newpost-container'>
        <form className='post-form' onSubmit={sendPost}>
             <button type='submit' name='submit' className='siginin-btn' disabled={loading}>submit</button>
+            <button type='button' name='cancel' className='siginin-btn'onClick={()=>{navigate("/profile")}} >Cancel</button>
             <TextField fullWidth id="standard-basic" name="title" label="title" type="text" variant="standard" required />
             <TextField fullWidth type="file" name="image" id="image" helperText="title image" required/>
             <TextField fullWidth
@@ -117,7 +116,8 @@ function Newpost() {
             wrapperClassName="wrapper-class"
             editorClassName="editor-class"
             toolbarClassName="toolbar-class"
-
+            placeholder="Write something!"
+            stripPastedStyles={true}
             />
 
         </div>

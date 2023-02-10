@@ -195,7 +195,7 @@ router.get("/logout", function(req, res){
   //////////////////////////////////////////////////////////////////////////////////
 
 router.post("/createPost",upload.single('image'),function(req,res){
-    console.log(req.body.category);
+    console.log(req.body.post);
     console.log(req.body.authorName);
 
     const newpost= new Post({ 
@@ -212,10 +212,51 @@ router.post("/createPost",upload.single('image'),function(req,res){
     
 });
 
-router.post("/updatePost",function(req,res){
-    console.log(req.body);
+// router.post("/updatePostPicture", upload.single("image"), function(req,res){
+//     Post.findOneAndUpdate({"_id":req.body.id},
+//         {$set:{
+//             "img":fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
+//         }}
+//         ,{new: true }, function (err, post) {
+    
+//             if (err) {
+//                 console.log(err)
+//             }
+//             else if(!post){
+//                 res.send("post not found")
+//             }
+//             else if(post){
+//                 res.send("upload successful");
+                
+//             }
+        
+//         }); 
 
-});
+// });
+router.post("/updatePost",function(req,res){
+    Post.findOneAndUpdate({"_id":req.body.id},
+        {$set:{
+            "title":req.body.title,
+            // "img":fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename)),
+            "postBody":req.body.post,
+            "author":req.body.authorName,
+            "postDate":new Date(),
+            "category":req.body.category,
+        }},{new: true }, function (err, post) {
+    
+            if (err) {
+                console.log(err)
+            }
+            else if(!post){
+                res.send("post not found")
+            }
+            else if(post){
+                res.send("edit successful");
+                
+            }
+        
+        }); 
+ });
 router.get("/readPost",function(req,res){
     console.log(req.query.id)
     Post.find({author:req.query.id},function(err,post){

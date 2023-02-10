@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import "./Postcard.css"
 import axios from 'axios';
-import DOMPurify from 'dompurify';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import {useDispatch, useSelector } from 'react-redux'
@@ -9,6 +8,7 @@ import { readPost } from '../store/readPost';
 import Loading from '../Loading/Loading';
 export default function PostCard() {
   const { userInfo ,posts, loading} = useSelector((state) => state.user)
+  console.log(posts)
   let navigate=useNavigate();
   const dispatch = useDispatch()
   const[delPost,setDelPost]=useState(false)
@@ -17,9 +17,7 @@ export default function PostCard() {
     setDelPost(false)
 
   },[delPost]);
-console.log(posts)
   function del (id){
-    console.log(id)
     const config = {
       withCredentials: true,
       params: {
@@ -56,7 +54,8 @@ console.log(posts)
     </>:
     <h2>You have no posts</h2>}
     </Box>
-    </>:null}
+    </>:null
+    }
     </>}
     
     

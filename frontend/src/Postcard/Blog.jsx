@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Loading from '../Loading/Loading';
 import {useDispatch, useSelector } from 'react-redux'
 import {readAllPost} from "../store/readAllPosts"
-import { unstable_createChainedFunction } from '@mui/utils';
+import { userActions } from '../store/userSlice';
 function Blog() {
   const dispatch = useDispatch()
   const { posts, loading, error} = useSelector((state) => state.user)
@@ -23,7 +23,7 @@ function Blog() {
     {posts?
     <>
     <Box sx={{ width: '100%', height:'100%', overflowY:'scroll', display:'flex',
-                 flexDirection:'row',flexWrap:'wrap' , justifyContent:'center', p:'1rem',}}> 
+                 flexDirection:'row',flexWrap:'wrap' , justifyContent:'center', pt:'4rem',}}> 
     {posts.length!==0?
     <>
     {posts.map((item) =>(

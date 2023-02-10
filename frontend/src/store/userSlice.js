@@ -5,6 +5,7 @@ import { getUserDetails } from "./getUser";
 import { editProfile } from "./updateUser";
 import { editPicture } from "./updatePicture";
 import { newPost } from "./Newpost";
+import {updatePost} from "./editPost"
 import { readPost } from "./readPost";
 import { readAllPost } from "./readAllPosts";
 const sessionId = localStorage.getItem('sessionId')
@@ -143,6 +144,22 @@ const userSlice= createSlice({
         
       },
       [newPost.rejected]: (state, { payload }) => {
+        state.loading = false
+        state.error=payload
+      },
+
+       ///////////////////////////////////////////ediy post///////////////////////////
+       [updatePost.pending]: (state) => {
+        state.loading = true
+        state.Response = null
+        state.error=null
+      },
+      [updatePost.fulfilled]: (state, { payload }) => {
+        state.loading = false
+        state.Response = payload // post successful
+        
+      },
+      [updatePost.rejected]: (state, { payload }) => {
         state.loading = false
         state.error=payload
       },

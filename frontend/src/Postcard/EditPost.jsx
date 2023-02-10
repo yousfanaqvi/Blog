@@ -1,27 +1,22 @@
 import React , {useEffect, useState}from 'react'
 import "./Postcard.css"
 import TextField from '@mui/material/TextField';
-import { EditorState, ContentState, convertFromHTML } from 'draft-js';
+import {EditorState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { convertToRaw } from 'draft-js';
-import draftToMarkdown from 'draftjs-to-markdown';
-import {newPost} from "../store/Newpost"
+import { convertToRaw , convertFromRaw} from 'draft-js';
+import {updatePost} from "../store/editPost"
 import { useDispatch, useSelector } from 'react-redux'
 import { userActions } from '../store/userSlice';
 import Loading from '../Loading/Loading';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
-import { convertFromRaw } from 'draft-js';
-
-import "./Postcard.css"
-    
+import axios from 'axios';
 function Newpost() {
 
     const { state } = useLocation();
-    const title=state.post.title;
-    console.log(state.post.postBody)
     const [postData, setPostData] = useState(state.post);
+    const navigate=useNavigate();
 
     const handlePostChange = (e) => {
         const { name, value } = e.target;
@@ -30,7 +25,6 @@ function Newpost() {
           [name]: value
         }));
       };
-    console.log(postData)
     const categories = [
         {
         value: 'lifestyle',
@@ -59,36 +53,33 @@ function Newpost() {
         label: 'health',
         },
     ];
-
+    var image=`data:image/image/png;base64, ${Buffer.from(state.post.img.data).toString('base64')}`;
     const [category, setCategory] = React.useState('EUR');
     const handleChange = (event) => {
       setCategory(event.target.value);
     };
 
-    let navigate=useNavigate();
     const { loading,Response,userInfo} = useSelector((state) => state.user);
-    console.log(loading)
     console.log(Response)
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(userActions.reset());
-    }, [])
+    },)
+
+    const [editorState, setEditorState] = useState(() => EditorState.createWithContent(
+     convertFromRaw(JSON.parse(state.post.postBody))
+      ));
+
     
-    const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
-
-    setEditorState(EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(<p>my text</p>))));
-
-       
     const [convertedContent, setConvertedContent] = useState(null);
 
     useEffect(() => {
-        let html = draftToMarkdown(convertToRaw(editorState.getCurrentContent()));
-        setConvertedContent(html)
-        if(Response==="post successful")
+        let html = (convertToRaw(editorState.getCurrentContent()));
+        setConvertedContent(JSON.stringify(html))
+        if(Response==="edit successful")
         {
             navigate("/profile")
         }
-    
     }, [editorState, Response]);
 
     const sendPost = (e) =>{
@@ -96,7 +87,20 @@ function Newpost() {
         const bodyFormData = new FormData(e.target)
         bodyFormData.append("post",convertedContent)
         bodyFormData.append("authorName",userInfo.fname + " " +userInfo.lname)
-        dispatch(newPost(bodyFormData))
+        bodyFormData.append("id",state.post._id)
+        // if(bodyFormData.get("image").name !==""){
+        //   const config= {
+        //       withCredentials: true,
+        //       headers: {
+        //         'Content-Type': 'multipart/form-data',
+        //       },
+        //     }; 
+        //   // axios.post("http://localhost:5000/updatePostPicture",config).then((res)=>{
+        //   // console.log(res)
+        //   // })
+        // }
+        dispatch(updatePost(bodyFormData))
+        console.log(bodyFormData.get('image'))     
 
    }
 
@@ -106,11 +110,13 @@ function Newpost() {
     <div className='newpost-container'>
        <form className='post-form' onSubmit={sendPost}>
             <button type='submit' name='submit' className='siginin-btn' disabled={loading}>submit</button>
+            <button type='button' name='cancel' className='siginin-btn' onClick={()=>{navigate("/profile")}} >Cancel</button>
             <TextField fullWidth id="standard-basic" name="title" label="title" type="text" variant="standard" required 
                 value={postData.title}
                 onChange={handlePostChange}
             />
-            <TextField fullWidth type="file" name="image" id="image" helperText="title image" required/>
+            <img src={image} style={{width:'150px', height:'150px'}}></img>
+            <TextField fullWidth type="file" name="image" id="image" helperText="title image"/>
             <TextField fullWidth
               select
               value={category}
@@ -138,7 +144,7 @@ function Newpost() {
             wrapperClassName="wrapper-class"
             editorClassName="editor-class"
             toolbarClassName="toolbar-class"
-
+            stripPastedStyles={true}
             />
 
         </div>

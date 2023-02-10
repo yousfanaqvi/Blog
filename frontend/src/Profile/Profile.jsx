@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import "./Profile.css"
 import { useSelector } from 'react-redux';
 import { Avatar } from '@mui/material';
@@ -17,7 +17,6 @@ export default function Profile() {
     var img=`data:image/image/png;base64, ${Buffer.from(userInfo.img.data).toString('base64')}`;
     var fname= userInfo.fname.charAt(0).toUpperCase() + userInfo.fname.slice(1);
     var lname=userInfo.lname.charAt(0).toUpperCase() + userInfo.lname.slice(1);
-     
   return (
     <>
    
