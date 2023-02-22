@@ -1,6 +1,8 @@
 const mongoose= require("mongoose");
 
 mongoose.connect(process.env.MONGO_URI);
+mongoose.set('strictQuery', true);
+
 const postSchema=new mongoose.Schema({
       title:String,
       img:
