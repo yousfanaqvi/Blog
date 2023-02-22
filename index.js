@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
-  origin: "http://localhost:3000", // allow to server to accept request from different origin
+  origin: "*", // allow to server to accept request from different origin
   methods: ['GET','POST','DELETE'],
   credentials: true, // allow session cookie from browser to pass through
   "Access-Control-Allow-Credentials": true
