@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.aa001323.css",
+    "main.js": "/static/js/main.ef14cb8b.js",
+    "static/media/reg.jpg": "/static/media/reg.7dda5167606025140fa3.jpg",
+    "static/media/r3.jpg": "/static/media/r3.d7fc1e246f39ce3c0d57.jpg",
+    "static/media/cesar-couto-Kg2M24Pr9aU-unsplash.jpg": "/static/media/cesar-couto-Kg2M24Pr9aU-unsplash.0fbf096ee30b342da29c.jpg",
+    "static/media/r2.jpg": "/static/media/r2.f30d4a8146be8b335803.jpg",
+    "static/media/fp.jpg": "/static/media/fp.5a0c6c2b1f0a805fe4ee.jpg",
+    "index.html": "/index.html",
+    "static/media/stripes-light.webp": "/static/media/stripes-light.bbaaccfecb4c2f48c22b.webp",
+    "main.aa001323.css.map": "/static/css/main.aa001323.css.map",
+    "main.ef14cb8b.js.map": "/static/js/main.ef14cb8b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aa001323.css",
+    "static/js/main.ef14cb8b.js"
+  ]
+}
