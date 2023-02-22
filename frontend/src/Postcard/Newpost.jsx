@@ -1,7 +1,6 @@
 import React , {useEffect, useState}from 'react'
 import "./Postcard.css"
 import TextField from '@mui/material/TextField';
-import axios from 'axios';
 import { EditorState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';

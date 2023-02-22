@@ -1,4 +1,3 @@
-const mongoose= require("mongoose");
 var Register = require('./userSchema');
 
 function registerUser(props){
@@ -14,7 +13,6 @@ function registerUser(props){
           lname:props.lname,
           password:props.password,
           email:props.email,
-          // profilePicture:props.profilePicture
 
         });
       

@@ -6,6 +6,8 @@ import Box from '@mui/material/Box';
 import {useDispatch, useSelector } from 'react-redux'
 import { readPost } from '../store/readPost';
 import Loading from '../Loading/Loading';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 export default function PostCard() {
   const { userInfo ,posts, loading} = useSelector((state) => state.user)
   console.log(posts)
@@ -44,10 +46,14 @@ export default function PostCard() {
     <>
     {posts.map((item) =>(
       <div className='card' key={item.id}>
-        <img src={`data:image/image/png;base64, ${Buffer.from(item.img.data).toString('base64')}`} style={{width:'200px', height:'150px'}}></img>
+        <span className='post-btns'>
+          <img src={`data:image/image/png;base64, ${Buffer.from(item.img.data).toString('base64')}`} style={{width:'200px', height:'150px', borderRadius:'10%'}} className='postcard-img'></img>
+          <span className='post-btns2'>
+            <button onClick={()=>navigate("/editpost", { state: { post:item } })} className='editPost-btn' title='edit' ><EditIcon sx={{fontSize:'small'}}></EditIcon></button>
+            <button onClick={()=>del(item._id)} className='delPost-btn' title='delete' ><DeleteIcon sx={{fontSize:'small'}}></DeleteIcon></button>
+          </span>
+        </span>
         <h4>{item.title}</h4>
-        <button onClick={()=>navigate("/editpost", { state: { post:item } })} className='readmore-btn' >Edit</button>
-        <button onClick={()=>del(item._id)} className='readmore-btn' >delete</button>
         <button onClick={()=>navigate("/post", { state: { post:item } })} className='readmore-btn' >read more..</button>
       </div>
     ))}

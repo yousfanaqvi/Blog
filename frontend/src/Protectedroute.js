@@ -1,9 +1,7 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useNavigate } from "react-router-dom"
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Loading from "./Loading/Loading";
-import axios from 'axios';
 
 const ProtectedRoute = () => {
 
@@ -14,7 +12,13 @@ const ProtectedRoute = () => {
       return (
         <div className='unauthorized'>
           <h1>Unauthorized Page</h1>
-            <button className="siginin-btn" onClick={()=>navigate("/")}>Login</button>
+          <h3>Please Login or Create an Account with us!</h3>
+          <div className="unauth-cta">
+            <a className="unauth-link" onClick={()=>navigate("/")}>Login</a>
+            <a className="unauth-link" onClick={()=>navigate("/register")}>Join us</a>
+
+          </div>
+            
         </div>
       )
     }

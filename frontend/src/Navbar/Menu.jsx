@@ -1,4 +1,4 @@
-import React,{useEffect}from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -51,9 +51,9 @@ function AccountMenu() {
   return (
     <React.Fragment>
       <div className='Navbar'>
-      <h2 id="app-title">Better Living</h2>
+      <h2 id="app-title" onClick={()=>navigate("/")}>Better Living</h2>
       {!userInfo?<a className='nav-link' onClick={()=>navigate("/")}>Home</a>:null}
-        <a className='nav-link' onClick={()=>navigate("/blog")}>Blogs</a>
+        <a className='nav-link' onClick={()=>navigate("/blog")}>Blog</a>
         {userInfo?<Tooltip title="Account">
           <IconButton
             onClick={handleClick}

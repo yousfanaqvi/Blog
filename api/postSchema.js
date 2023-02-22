@@ -1,5 +1,4 @@
 const mongoose= require("mongoose");
-// const passportLocalMongoose=require('passport-local-mongoose')
 
 mongoose.connect(process.env.MONGO_URI);
 const postSchema=new mongoose.Schema({

@@ -8,6 +8,7 @@
     padding:1rem;
     padding-top:6rem;
     color:#0F1626;
+    padding-bottom: 4rem;
     
 }
 .register-content{
@@ -54,7 +55,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     width: 100%;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 
@@ -64,6 +65,11 @@
     gap: 20px;
     width: 100%;
     
+}
+.sec-question{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 .input-error{
     color: red;
@@ -94,5 +100,10 @@
     .reg-desc{
         height: 100%;
     }
+    .register-container{
+        padding-bottom: 0;
+
+    }
+
    
 }

@@ -62,9 +62,9 @@ function Login() {
        return axios.post('http://localhost:5000/forgotpassword', userData, config)
        .then((res) => {
          console.log(res.data.code)
-         if(res.data.code===200)
+         if(res.data)
          {
-          navigate("/forgotpassword",{state:{username:e.target.username.value}})
+          navigate("/forgotpassword",{state:{username:e.target.username.value, question:res.data.question, answer:res.data.answer}})
          }
          else if(res.data.code===500){
           setInvaliduser("invalid username")
@@ -82,7 +82,7 @@ function Login() {
     <a className='FpLink' onClick={handleClickOpen}>
       Forgot password
       </a>
-    <button type='submit' name="submit" className='siginin-btn' disabled={loading}>Sign in</button>
+    <button type='submit' name="submit" className='siginin-btn' disabled={loading}>Log in</button>
     {error ? error:null}
     {loading ?
       <div className='loading-div'><Loading/></div>
@@ -90,7 +90,7 @@ function Login() {
     </form>
      
       <span>Not a Member? 
-      <a className='signupLink' onClick={()=>{navigate("/register")}}> Register now</a> </span>
+      <a className='signupLink' onClick={()=>{navigate("/register")}}> Join now</a> </span>
       
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Forgot password</DialogTitle>

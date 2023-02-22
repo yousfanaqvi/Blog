@@ -23,7 +23,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie : { httpOnly: true, secure : false}
-  // cookie: { secure: true }
 }))
 app.use(passport.initialize());
 app.use(passport.session());
@@ -31,77 +30,7 @@ app.use(passport.session());
 const user = require("./api/user");
 app.use("/", user);
 
-
-
-// mongoose.connect(process.env.MONGO_URI);
-// const UserSchema=new mongoose.Schema({
-//       fname:String,
-//       lname:String,
-//       username:String,
-//       password:String,
-//       // profilePicture:String
-      
-// });
-// UserSchema.plugin(passportLocalMongoose);
-
-
-
-// app.get('/loginerror',(req,res) => {
-//   console.log("error");
-//   res.json("user invalid");
-// });
-
-// app.post("/login", (req,res) => {
-//    const user = new User({
-//        username:req.body.username,
-//        password:req.body.password
-//    });
-//    req.login(user,function(err){
-//        if(err)
-//        console.log(err)
-//        else
-//        passport.authenticate('local',{ failureRedirect: '/loginerror', failureMessage: true  })(req, res, function () {
-//            res.json('success');
-//           //  res.redirect("/getUserData")
-//            //console.log(req.user);
-//        });
-//    })
-// });
-       
-
-
-// app.post("/registerUser",(req,res) => {
-//    User.register(new User(
-//        {
-//            fname:req.body.fname,
-//            lname:req.body.lname,
-//            username:req.body.username})
-//            ,req.body.password, function(err, user) {
-//        if (err) {
-//            console.log(err);
-//            res.json("user exists");
-//        }
-//        else{
-//            passport.authenticate('local')(req, res, function () {
-//                res.json("user Registerd");
-//                console.log(req.user);
-//            });
-//    }
-// });
-
-// });
-
-// app.get("/getUserData", (req, res) => {
-//   console.log("hey")
-//   // res.json("hello");
-//   // console.log("getdata"+req.user);
-//   // console.log("hey")
-       
-// });
-
- app.use(express.static(path.join(__dirname, "./frontend/build")));
-
-
+app.use(express.static(path.join(__dirname, "./frontend/build")));
 app.get("*", function (_, res) {
   res.sendFile(
     path.join(__dirname, "./frontend/build/index.html"),

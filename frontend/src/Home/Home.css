@@ -9,23 +9,122 @@
     height: 100%;
     width: 100%;
     z-index: -2;
-    /* background-color: aliceblue; */
+}
+#bl{
+    letter-spacing: 3px;
+    margin: 2px;
+    color: #0F1626;
+    font-weight: bolder;
 
 }
-.home-container{
+#best{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    letter-spacing: 1.5px;
+    line-height: 2.5rem;
+    color: #0F1626;
+
+    
+}
+.home-content{
     display: flex;
     flex-direction: row;
     width: 100vw;
     height: 100vh;
     align-items: center;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
 }
 
-.signup-btn{
-    background-color: aqua;
-    cursor: pointer;
+.left-content{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: left;
+    align-items: flex-start;
+    width: 350px;
+    margin-left: 7rem;
+    
 }
-.signup-btn:hover{
-    background-color: blueviolet;
+.home-container{
+    display: flex;
+    flex-direction: row;
+    margin-right: 7rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.join-btn {
+    appearance: none;
+    background-color: white;
+    border: 2px solid #0F1626;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #0F1626;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 8px;
+    min-height: 20px;
+    outline: none;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+    width: 120px;
+  }
+  
+  .join-btn:disabled {
+    pointer-events: none;
+    background-color:rgb(169, 169, 169,0.7);
+  }
+  
+  .join-btn:hover {
+    color: #fff;
+    background-color: #f73d0e;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  .join-btn:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+
+
+@media only screen 
+  and (min-device-width: 600px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    
+    .left-content,.home-container{
+        margin: 2rem;
+    }
+
+  }
+@media screen and (max-width:600px){
+
+    .home-content{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        justify-content: center;
+        padding-top:4.8rem;
+    }
+    .left-content,.home-container{
+        margin: 0;
+    }
+    .left-content{
+        width: 250px;
+        margin-bottom: 0.3rem;
+    }
 }

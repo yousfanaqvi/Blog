@@ -54,7 +54,7 @@ function Newpost() {
         },
     ];
     var image=`data:image/image/png;base64, ${Buffer.from(state.post.img.data).toString('base64')}`;
-    const [category, setCategory] = React.useState('EUR');
+    const [category, setCategory] = React.useState(state.post.category);
     const handleChange = (event) => {
       setCategory(event.target.value);
     };
@@ -88,17 +88,17 @@ function Newpost() {
         bodyFormData.append("post",convertedContent)
         bodyFormData.append("authorName",userInfo.fname + " " +userInfo.lname)
         bodyFormData.append("id",state.post._id)
-        // if(bodyFormData.get("image").name !==""){
-        //   const config= {
-        //       withCredentials: true,
-        //       headers: {
-        //         'Content-Type': 'multipart/form-data',
-        //       },
-        //     }; 
-        //   // axios.post("http://localhost:5000/updatePostPicture",config).then((res)=>{
-        //   // console.log(res)
-        //   // })
-        // }
+        if(bodyFormData.get("image").name !==""){
+          const config= {
+              withCredentials: true,
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+            }; 
+          axios.post("http://localhost:5000/updatePostPicture",bodyFormData,config).then((res)=>{
+          console.log(res)
+          })
+        }
         dispatch(updatePost(bodyFormData))
         console.log(bodyFormData.get('image'))     
 

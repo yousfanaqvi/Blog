@@ -132,7 +132,6 @@ function EditProfile( props) {
     setAlert(null)
     return axios.get('http://localhost:5000/logout', config)
     .then((res) => {
-      console.log(res)
       if(res.data==="success"){
        dispatch(userActions.logout());
        navigate("/");

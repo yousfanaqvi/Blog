@@ -3,8 +3,9 @@ import TextField from '@mui/material/TextField';
 import 'animate.css';
 import "./Register.css"
 import "../Login/Login.css"
-import img from "../assets/r.jpg"
-import { useNavigate } from 'react-router-dom';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import {registerUser} from "../store/register"
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
@@ -17,14 +18,17 @@ import { userActions } from '../store/userSlice';
 
 function Register() {
 //////////////////////////store and navigate/////////////////////////////////////////////
-  const navigate=useNavigate();
   const { loading,Response,error} = useSelector((state) => state.user);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(userActions.reset());
   }, [])
  
+  const [question, setQuestion] = React.useState('');
 
+  const handleQChange = (event) => {
+    setQuestion(event.target.value);
+  };
   ///////////////////////////////////////validate password/////////////////////////////////
   const [data,setData]= useState({
     password:"",
@@ -98,6 +102,21 @@ function Register() {
           onChange={handleChange}
           required />
         </span>
+        <span className='sec-question'>
+        <InputLabel id="demo-simple-select-label">Security question</InputLabel>
+        <Select
+          value={question}
+          label="Question"
+          name="Question"
+          onChange={handleQChange}
+        >
+          <MenuItem value={"What is your first school name?"}>What is your first school name?</MenuItem>
+          <MenuItem value={"What is your pet's name?"}>What is your pet's name?</MenuItem>
+          <MenuItem value={"What is your favorite color?"}>What is your favorite color?</MenuItem>
+        </Select>
+            <TextField fullWidth id="standard-basic" name="answer" label="Answer" type="text" variant="standard" required />
+
+        </span>
         
           <div className="input-error">
           {data.password !== data.cPassword ? "" : ""}
@@ -111,7 +130,7 @@ function Register() {
           <div className='loading-div'><Loading/></div>
         :null}
 
-        {Response?<Alert severity="success">This is a success alert — check it out!</Alert>:null}
+        {Response?<Alert severity="success">Registered successfully!- please login</Alert>:null}
 
         <button type='submit' name="submit" className='siginin-btn' disabled={loading}>Submit</button>
       </form>

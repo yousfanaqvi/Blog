@@ -8,12 +8,11 @@ function Forgotpassword() {
   
   const { state } = useLocation();
   const username=state.username;
-  console.log(username);
   const [data,setData]= useState({
     password:"",
     cPassword:""
   });
-  
+  console.log(state.answer)
   const [passMatch, setPassmatch]=useState("true");
   
   React.useEffect(() => {
@@ -25,6 +24,16 @@ function Forgotpassword() {
       ? setPassmatch(true)
       : setPassmatch(false);
   };
+  
+  const [ans,setAns]= useState('');
+
+  const checkAnswer = (e)=>{
+    e.preventDefault();
+    if(state.answer === e.target.answer.value)
+    setAns(true);
+    else
+    setAns(false);
+  }
   
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -57,7 +66,16 @@ function Forgotpassword() {
   return (
     <div className='FP-container'>
     <h1>Trouble Sigining in?</h1>
-    <p>Enter a new password for your account</p>
+    <p>Please answer your security question to set new password for your account</p>
+    {!ans?
+    <div className='question-container'>
+        <h3>{state.question}</h3>
+        <form onSubmit={checkAnswer}>
+        <TextField fullWidth id="standard-basic" name="answer" label="Answer" type="text" variant="standard" required />
+        <button name='submit' type='submit' className='siginin-btn'>Check</button>
+        </form>
+    </div>
+   :
     <form onSubmit={sendData} className="FP-form">
       <TextField id="password" name="password" label="password" type="password" variant="standard" 
           value={data.password}
@@ -76,7 +94,9 @@ function Forgotpassword() {
 
         </div>
         <button type='submit' name="submit" className='siginin-btn'>Reset</button>
-      </form>
+      </form>}
+      {ans===false?<h4 className="input-error">Incorrect answer</h4>:null}
+
     </div>
   )
 }

@@ -7,14 +7,14 @@ const UserSchema=new mongoose.Schema({
       lname:String,
       username:String,
       password:String,
+      question:String,
+      answer:String,
       img:
       {
         type: Buffer,
         required:true   
       }
-      
-      // profilePicture:String
-      
+            
 });
 UserSchema.plugin(passportLocalMongoose);
 
