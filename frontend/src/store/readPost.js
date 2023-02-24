@@ -6,7 +6,7 @@ export const readPost = createAsyncThunk(
     async (userid ,{ rejectWithValue }) => {
       try {
          const config = {
-            withCredentials: true,
+            // withCredentials: true,
             params:{
               id:userid
             }

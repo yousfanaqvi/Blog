@@ -6,7 +6,7 @@ export const getUserDetails = createAsyncThunk(
     async (arg, { rejectWithValue }) => {
       try {
          const config = {
-            withCredentials: true,
+            // withCredentials: true,
         }
         const { data } = await axios.get('/getUserData',config)
         return data

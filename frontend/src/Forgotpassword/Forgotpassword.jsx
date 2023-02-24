@@ -50,7 +50,7 @@ function Forgotpassword() {
       bodyFormData.append("username",username);
     
     const config = {
-      withCredentials: true,
+      // withCredentials: true,
       headers: {
         'Content-Type': 'multipart/form-data',
       },

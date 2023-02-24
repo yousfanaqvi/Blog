@@ -4,7 +4,7 @@ import axios from "axios";
 export const updatePost = createAsyncThunk('user/updatePost',async (bodyFormData, { rejectWithValue }) => {
     try {
     const config = {
-    withCredentials: true,
+    // withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
     },}

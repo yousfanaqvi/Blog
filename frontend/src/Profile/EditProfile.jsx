@@ -103,7 +103,7 @@ function EditProfile( props) {
   };
 
   const config = {
-    withCredentials: true,
+    // withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
     },

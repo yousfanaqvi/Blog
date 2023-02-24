@@ -6,7 +6,7 @@ export const readAllPost = createAsyncThunk(
     async (arg, { rejectWithValue }) => {
       try {
          const config = {
-            withCredentials: true,
+            // withCredentials: true,
         }
         const { data } = await axios.get("/readAllPost",config)
         return data

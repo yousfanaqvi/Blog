@@ -4,7 +4,7 @@ import axios from "axios";
 export const editProfile = createAsyncThunk('user/editProfile',async (bodyFormData, { rejectWithValue }) => {
     try {
     const config = {
-    withCredentials: true,
+    // withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
     },}

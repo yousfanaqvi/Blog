@@ -4,7 +4,7 @@ import axios from "axios";
 export const editPicture = createAsyncThunk('user/editPicture',async (bodyFormData, { rejectWithValue }) => {
     try {
     const config = {
-    withCredentials: true,
+    // withCredentials: true,
     headers: {
         'Content-Type': 'multipart/form-data',
     },}
