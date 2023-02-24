@@ -117,7 +117,7 @@ function EditProfile( props) {
           oldPassword:e.target.oldPassword.value,
           newPassword:e.target.newPassword.value
         })
-        return axios.post('http://localhost:5000/changePassword',passdata, config)
+        return axios.post('https://blog-server-gilt.vercel.app/changePassword',passdata, config)
         .then((res) => {
           if(res.data.code=='500'){
             setAlert(true)
@@ -130,7 +130,7 @@ function EditProfile( props) {
   } 
   const logout= ()=>{
     setAlert(null)
-    return axios.get('http://localhost:5000/logout', config)
+    return axios.get('https://blog-server-gilt.vercel.app/logout', config)
     .then((res) => {
       if(res.data==="success"){
        dispatch(userActions.logout());
@@ -141,7 +141,7 @@ function EditProfile( props) {
 
 
   const del =()=>{
-      return axios.delete("http://localhost:5000/deleteAccount",config)
+      return axios.delete("https://blog-server-gilt.vercel.app/deleteAccount",config)
       .then((res)=>{
         if(res.data.code=='200'){
           setIsDel(true)

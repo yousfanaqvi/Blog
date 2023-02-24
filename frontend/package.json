@@ -59,7 +59,7 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://127.0.0.1:5000",
+  "proxy": "https://blog-server-gilt.vercel.app/",
   "eslintConfig": {
     "extends": [
       "react-app",
