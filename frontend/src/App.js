@@ -18,8 +18,9 @@ import EditPost from "./Postcard/EditPost"
 function App() {
 
   const dispatch = useDispatch()
-  const { sessionId } = useSelector((state) => state.user)
+  const { sessionId, userInfo } = useSelector((state) => state.user)
   console.log("session"+sessionId)
+  console.log("userInfo"+userInfo)
   useEffect(() => {
     if (sessionId) {
       dispatch(getUserDetails())      
