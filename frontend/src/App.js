@@ -19,6 +19,7 @@ function App() {
 
   const dispatch = useDispatch()
   const { sessionId } = useSelector((state) => state.user)
+  console.log("session"+sessionId)
   useEffect(() => {
     if (sessionId) {
       dispatch(getUserDetails())      
