@@ -8,7 +8,7 @@ export const readAllPost = createAsyncThunk(
          const config = {
             // withCredentials: true,
         }
-        const { data } = await axios.get("/readAllPost",config)
+        const { data } = await axios.get("https://blog-server-gilt.vercel.app/readAllPost",config)
         return data
       } catch (error) {
         if (error)

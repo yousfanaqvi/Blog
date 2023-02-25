@@ -9,7 +9,7 @@ export const editProfile = createAsyncThunk('user/editProfile',async (bodyFormDa
         'Content-Type': 'application/json',
     },}
     const response =await axios.post(
-    '/editProfile',
+    'https://blog-server-gilt.vercel.app/editProfile',
     bodyFormData,
     config
     );

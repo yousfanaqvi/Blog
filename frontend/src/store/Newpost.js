@@ -9,7 +9,7 @@ export const newPost = createAsyncThunk('user/newPost',async (bodyFormData, { re
         'Content-Type': 'multipart/form-data',
     },}
     const response =await axios.post(
-    '/createPost',
+    'https://blog-server-gilt.vercel.app/createPost',
     bodyFormData,
     config
     );

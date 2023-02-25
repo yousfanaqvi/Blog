@@ -11,7 +11,7 @@ export const readPost = createAsyncThunk(
               id:userid
             }
         }
-        const { data } = await axios.get('/readPost',config)
+        const { data } = await axios.get('https://blog-server-gilt.vercel.app/readPost',config)
         return data
       } catch (error) {
         if (error.response && error.response.data.message) {
