@@ -9,7 +9,7 @@ export const editPicture = createAsyncThunk('user/editPicture',async (bodyFormDa
         'Content-Type': 'multipart/form-data',
     },}
     const response =await axios.post(
-    'https://blog-server-gilt.vercel.app/editPicture',
+    '/editPicture',
     bodyFormData,
     config
     );

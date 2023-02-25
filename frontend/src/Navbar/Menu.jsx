@@ -39,7 +39,7 @@ function AccountMenu() {
           'Content-Type': 'application/json',
         },
       };
-      return axios.get('https://blog-server-gilt.vercel.app/logout', config)
+      return axios.get('/logout', config)
       .then((res) => {
         console.log(res)
         if(res.data==="success"){

@@ -130,7 +130,7 @@ function EditProfile( props) {
   } 
   const logout= ()=>{
     setAlert(null)
-    return axios.get('https://blog-server-gilt.vercel.app/logout', config)
+    return axios.get('/logout', config)
     .then((res) => {
       if(res.data==="success"){
        dispatch(userActions.logout());
@@ -141,7 +141,7 @@ function EditProfile( props) {
 
 
   const del =()=>{
-      return axios.delete("https://blog-server-gilt.vercel.app/deleteAccount",config)
+      return axios.delete("/deleteAccount",config)
       .then((res)=>{
         if(res.data.code=='200'){
           setIsDel(true)

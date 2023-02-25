@@ -13,6 +13,9 @@ function Blog() {
   useEffect(()=>{
     dispatch(readAllPost());
   },[]);
+  console.log("posts")
+
+  console.log(posts)
 
   const categories = [
     {

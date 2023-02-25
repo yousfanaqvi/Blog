@@ -59,7 +59,7 @@ function Login() {
          },
        };
    
-       return axios.post('https://blog-server-gilt.vercel.app/forgotpassword', userData, config)
+       return axios.post('/forgotpassword', userData, config)
        .then((res) => {
          console.log(res.data.code)
          if(res.data)
