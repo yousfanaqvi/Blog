@@ -24,7 +24,8 @@ const userSlice= createSlice({
         error:null,
         userInfo:null,
         sessionId,
-        posts:null
+        posts:null,
+        allposts:null
   
     },
     reducers:{
@@ -35,6 +36,7 @@ const userSlice= createSlice({
           state.editpicResponse=null
           state.error=null
           state.posts=null
+          state.allposts=null
         },
         logout(state){
           localStorage.removeItem('sessionId') // deletes token from storage
@@ -46,6 +48,8 @@ const userSlice= createSlice({
           state.editpicResponse=null
           state.sessionId=null 
           state.posts=null
+          state.allposts=null
+
         }
         
                
@@ -176,13 +180,13 @@ const userSlice= createSlice({
         state.loading = false
         state.error = payload
       },
-      /////////////////////////////read post///////////////////////////
+      /////////////////////////////read all post///////////////////////////
       [readAllPost.pending]: (state) => {
         state.loading = true
       },
       [readAllPost.fulfilled]: (state, { payload }) => {
         state.loading = false
-        state.posts = payload
+        state.allposts = payload
         state.error=null
       },
       [readAllPost.rejected]: (state, { payload }) => {

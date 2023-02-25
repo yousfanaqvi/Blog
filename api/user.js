@@ -119,7 +119,6 @@ router.post('/changePassword', function (req, res) {
 
 
 router.post('/editProfile',  function(req, res){
-if(req.isAuthenticated()){
     Register.findOneAndUpdate({"_id":req.user.id},
     {$set:{
         "fname":req.body.fname,
@@ -138,13 +137,12 @@ if(req.isAuthenticated()){
         }
     
     });      
-    }
+    
 });
 
 router.post('/editPicture', upload.single('image'),function(req, res)
 {
-    if(req.isAuthenticated())
-    {
+    
         Register.findOneAndUpdate({"_id":req.user.id},
         {$set:{
             "img":req.file.buffer
@@ -162,10 +160,7 @@ router.post('/editPicture', upload.single('image'),function(req, res)
             res.send(user)
         }
         });
-    }
-    else{
-        console.log(req.isAuthenticated)
-    }
+    
  });
 
 router.delete("/deleteAccount",function(req,res){

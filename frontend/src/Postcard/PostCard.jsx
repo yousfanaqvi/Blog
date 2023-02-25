@@ -27,7 +27,7 @@ export default function PostCard() {
       },
     }; 
 
-      return axios.delete("http://localhost:5000/deletePost",config)
+      return axios.delete("/deletePost",config)
       .then((res)=>{
         if(res.data.code=='200'){
           setDelPost(true)

@@ -117,7 +117,7 @@ function EditProfile( props) {
           oldPassword:e.target.oldPassword.value,
           newPassword:e.target.newPassword.value
         })
-        return axios.post('https://blog-server-gilt.vercel.app/changePassword',passdata, config)
+        return axios.post('/changePassword',passdata, config)
         .then((res) => {
           if(res.data.code=='500'){
             setAlert(true)
