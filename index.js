@@ -28,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const user = require("./api/user");
-app.use("/", user);
+// app.use("/", user);
 
 app.use(express.static(path.join(__dirname, "./frontend/build")));
 app.get("*", function (_, res) {
