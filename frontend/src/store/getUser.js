@@ -8,7 +8,7 @@ export const getUserDetails = createAsyncThunk(
          const config = {
             // withCredentials: true,
         }
-        const { data } = await axios.get('https://blog-server-gilt.vercel.app/getUserData',config)
+        const { data } = await axios.get('/getUserData',config)
         return data
       } catch (error) {
         if (error.response && error.response.data.message) {
