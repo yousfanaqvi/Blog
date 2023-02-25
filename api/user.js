@@ -101,7 +101,7 @@ router.post("/setpassword",upload.none(), (req,res) => {
 
 router.post('/changePassword', function (req, res) {
 
-    Register.findOne({"_id":req.user.id}, function (err, user) {
+    Register.findOne({"_id":req.body.id}, function (err, user) {
             if (!err) {
                 user.changePassword(req.body.oldPassword, req.body.newPassword, function (err) {
                     if (!err) {
@@ -119,7 +119,7 @@ router.post('/changePassword', function (req, res) {
 
 
 router.post('/editProfile',  function(req, res){
-    Register.findOneAndUpdate({"_id":req.user.id},
+    Register.findOneAndUpdate({"_id":req.body.id},
     {$set:{
         "fname":req.body.fname,
         "lname":req.body.lname,
@@ -143,7 +143,7 @@ router.post('/editProfile',  function(req, res){
 router.post('/editPicture', upload.single('image'),function(req, res)
 {
     
-        Register.findOneAndUpdate({"_id":req.user.id},
+        Register.findOneAndUpdate({"_id":req.body.id},
         {$set:{
             "img":req.file.buffer
 
@@ -164,7 +164,7 @@ router.post('/editPicture', upload.single('image'),function(req, res)
  });
 
 router.delete("/deleteAccount",function(req,res){
-    Register.deleteOne( { "_id" : req.user.id },function(err,result){
+    Register.deleteOne( { "_id" : req.body.id },function(err,result){
         if(err)
             console.log(err)
         else if (!result)

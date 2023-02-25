@@ -80,11 +80,14 @@ function EditProfile( props) {
   const sendData = (e) => {
       e.preventDefault();
       const bodyFormData = new FormData(e.target)
+      bodyFormData.append("id",userInfo._id)
+
       dispatch(editProfile(bodyFormData)) 
   }
   const sendPic = (e) => {
     e.preventDefault();
     const bodyFormData = new FormData(e.target)
+    bodyFormData.append("id",userInfo._id)
     dispatch(editPicture(bodyFormData))
   }
 

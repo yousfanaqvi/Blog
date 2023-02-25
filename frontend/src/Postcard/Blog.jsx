@@ -9,13 +9,11 @@ import { userActions } from '../store/userSlice';
 import { TextField } from '@mui/material';
 function Blog() {
   const dispatch = useDispatch()
-  const { allposts, loading, error} = useSelector((state) => state.user)
+  const { posts, loading, error} = useSelector((state) => state.user)
   useEffect(()=>{
     dispatch(readAllPost());
   },[]);
-  console.log("posts")
-
-  console.log(allposts)
+  console.log(posts)
 
   const categories = [
     {
@@ -53,7 +51,7 @@ function Blog() {
   const [category, setCategory] = React.useState('');
       const handleChange = (event) => {
         setCategory(event.target.value);
-        x =allposts.filter(post => allposts.category.includes(category))
+        x =posts.filter(post => post.category.includes(category))
   };
 
   var navigate= useNavigate();
@@ -83,13 +81,13 @@ function Blog() {
       </div>
     {loading? <div className='loading-div'><Loading/></div>:
     <>
-    {allposts?
+    {posts?
     <>
     <Box sx={{ width: '100%', height:'100%', overflowY:'scroll', display:'flex',
                  flexDirection:'row',flexWrap:'wrap' , justifyContent:'center', pt:'4rem',}}> 
-    {allposts.length!==0 && category === ''?
+    {posts.length!==0 && category === ''?
     <>
-    {allposts.map((item) =>(
+    {posts.map((item) =>(
       <div className='card' key={item.id}>
         <img src={`data:image/image/png;base64, ${Buffer.from(item.img.data).toString('base64')}`} style={{width:'200px', height:'150px', borderRadius:'10%'}}></img>
         <h4>{item.title}</h4>
@@ -104,7 +102,7 @@ function Blog() {
     
     {category!==''?
     <>
-    {allposts.filter(post => post.category.includes(category)).map(filteredcategory => (
+    {posts.filter(post => post.category.includes(category)).map(filteredcategory => (
       <div className='card' key={filteredcategory.id}>
         <img src={`data:image/image/png;base64, ${Buffer.from(filteredcategory.img.data).toString('base64')}`} style={{width:'200px', height:'150px', borderRadius:'10%'}}></img>
         <h4>{filteredcategory.title}</h4>
