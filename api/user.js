@@ -11,7 +11,9 @@ const console = require("console");
 const LocalStrategy = require('passport-local').Strategy; 
 
 passport.use(new LocalStrategy(Register.authenticate()));
-var upload = multer({ dest: 'uploads/' });
+// var upload = multer({ dest: 'uploads/' });
+const storage = multer.memoryStorage()
+const upload = multer({ storage: storage })
 passport.serializeUser(Register.serializeUser());
 passport.deserializeUser(Register.deserializeUser());
 
@@ -40,7 +42,9 @@ router.post("/registerUser",upload.single('image'),(req,res) => {
             username:req.body.username,
             question:req.body.Question,
             answer:req.body.answer,
-            img:fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
+            img:req.file.buffer
+
+            // img:fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
         })
             ,req.body.password, function(err, user) {
         if (err) {
@@ -143,7 +147,9 @@ router.post('/editPicture', upload.single('image'),function(req, res)
     {
         Register.findOneAndUpdate({"_id":req.user.id},
         {$set:{
-           "img":fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
+            "img":req.file.buffer
+
+        //    "img":fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
         }}, function (err, user) {
     
         if (err) {
@@ -192,7 +198,8 @@ router.post("/createPost",upload.single('image'),function(req,res){
   
     const newpost= new Post({ 
         title:req.body.title,
-        img:fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename)),
+        img:req.file.buffer,
+        // img:fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename)),
         postBody:req.body.post,
         author:req.body.authorName,
         postDate:new Date(),
@@ -207,7 +214,9 @@ router.post("/createPost",upload.single('image'),function(req,res){
 router.post("/updatePostPicture", upload.single("image"), function(req,res){
     Post.findOneAndUpdate({"_id":req.body.id},
         {$set:{
-            "img":fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
+            "img":req.file.buffer
+
+            // "img":fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
         }}
         ,{new: true }, function (err, post) {
     
