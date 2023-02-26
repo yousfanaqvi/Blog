@@ -93,7 +93,7 @@ router.post("/setpassword",upload.none(), (req,res) => {
         if (err) {
           console.log(err);
         } else {
-          console.log("no")
+          res.send(res.status.code)
         }
       })
     })
@@ -146,8 +146,6 @@ router.post('/editPicture', upload.single('image'),function(req, res)
         Register.findOneAndUpdate({"_id":req.body.id},
         {$set:{
             "img":req.file.buffer
-
-        //    "img":fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
         }}, function (err, user) {
     
         if (err) {
@@ -210,8 +208,6 @@ router.post("/updatePostPicture", upload.single("image"), function(req,res){
     Post.findOneAndUpdate({"_id":req.body.id},
         {$set:{
             "img":req.file.buffer
-
-            // "img":fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename))
         }}
         ,{new: true }, function (err, post) {
     

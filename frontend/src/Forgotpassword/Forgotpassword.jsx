@@ -50,13 +50,12 @@ function Forgotpassword() {
       bodyFormData.append("username",username);
     
     const config = {
-      // withCredentials: true,
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     };
   
-    return axios.post('http://localhost:5000/setpassword', bodyFormData, config)
+    return axios.post('/setpassword', bodyFormData, config)
     .then((res) => {
       console.log(res)
   

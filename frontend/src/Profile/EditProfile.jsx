@@ -32,6 +32,7 @@ function EditProfile( props) {
   var fname= userInfo.fname.charAt(0).toUpperCase() + userInfo.fname.slice(1);
   var lname=userInfo.lname.charAt(0).toUpperCase() + userInfo.lname.slice(1);
 
+  console.log(Response)
   const [data,setData]= useState({
     oldPassword:"",
     newPassword:"",
