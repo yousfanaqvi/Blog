@@ -101,13 +101,13 @@ const userSlice= createSlice({
 
           [editProfile.pending]: (state) => {
             state.loading = true
-            state.Response = "Updating.."
+            state.editpicResponse = false
           },
           [editProfile.fulfilled]: (state, { payload }) => {
             state.loading = false
             state.userInfo = payload 
             state.error=null
-            state.Response="update successful"
+            state.editpicResponse=true
 
           },
           [editProfile.rejected]: (state, { payload }) => {

@@ -169,6 +169,7 @@
     }
     .Profile-container{
         flex-direction: column;
+        margin-bottom: 3rem;
     }
     .profile-avatar-box{
         width: 100px;

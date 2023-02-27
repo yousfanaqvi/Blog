@@ -1,7 +1,13 @@
 
 .home-background{
     background-image: url("../assets/r3.jpg");
-    object-fit: cover;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;    
+    position: fixed;
+    min-height: 100vh; 
+    /* object-fit: cover;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
@@ -9,9 +15,6 @@
     /* height: 100%;
     width: 100%; */
     z-index: -2;
-    width: 100vw;
-    background-repeat: no-repeat;
-    min-height: 100vh; 
 }
 #bl{
     letter-spacing: 3px;

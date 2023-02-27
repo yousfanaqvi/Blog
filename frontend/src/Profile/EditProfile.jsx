@@ -22,7 +22,7 @@ function EditProfile( props) {
   const dispatch = useDispatch();
   const navigate=useNavigate();
 
-  const { userInfo,loading ,error,Response,editpicResponse} = useSelector((state) => state.user)
+  const { userInfo,loading ,error,editpicResponse} = useSelector((state) => state.user)
   const [value, setValue] = React.useState('1');
   const [formData, setFormData] = useState(userInfo);
   const[img,setImg]=useState(`data:image/image/png;base64, ${Buffer.from(formData.img.data).toString('base64')}`);
@@ -32,7 +32,6 @@ function EditProfile( props) {
   var fname= userInfo.fname.charAt(0).toUpperCase() + userInfo.fname.slice(1);
   var lname=userInfo.lname.charAt(0).toUpperCase() + userInfo.lname.slice(1);
 
-  console.log(Response)
   const [data,setData]= useState({
     oldPassword:"",
     newPassword:"",
@@ -50,9 +49,12 @@ function EditProfile( props) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('sm'));
     useEffect(() => {
-      console.log(editpicResponse)
-      if(editpicResponse)
-      dispatch(getUserDetails())  
+      if(editpicResponse){
+        dispatch(getUserDetails()) 
+        dispatch(userActions.reset());
+        navigate("/profile") 
+      }
+      
     },[editpicResponse])
 
     useEffect(() => {
