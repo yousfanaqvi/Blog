@@ -11,6 +11,7 @@ const postSchema=new mongoose.Schema({
       },
       postBody:String,
       author:String,
+      author_id:String,
       postDate: { type: Date, default: Date.now },
       category:String,
 });

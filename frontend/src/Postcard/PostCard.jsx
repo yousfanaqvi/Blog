@@ -15,7 +15,9 @@ export default function PostCard() {
   const dispatch = useDispatch()
   const[delPost,setDelPost]=useState(false)
   useEffect(()=>{
-    dispatch(readPost(userInfo.fname + " " +userInfo.lname));
+    // dispatch(readPost(userInfo.fname + " " +userInfo.lname));
+    dispatch(readPost(userInfo._id));
+
     setDelPost(false)
 
   },[delPost]);

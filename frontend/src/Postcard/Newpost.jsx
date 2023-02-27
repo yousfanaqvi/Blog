@@ -75,6 +75,8 @@ function Newpost() {
         const bodyFormData = new FormData(e.target)
         bodyFormData.append("post",convertedContent)
         bodyFormData.append("authorName",userInfo.fname + " " +userInfo.lname)
+        bodyFormData.append("userId",userInfo._id)
+
         dispatch(newPost(bodyFormData))
 
    }

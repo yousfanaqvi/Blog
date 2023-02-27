@@ -192,7 +192,7 @@ router.post("/createPost",upload.single('image'),function(req,res){
     const newpost= new Post({ 
         title:req.body.title,
         img:req.file.buffer,
-        // img:fs.readFileSync(path.join(__dirname, "../uploads/" + req.file.filename)),
+        author_id:req.body.userId,
         postBody:req.body.post,
         author:req.body.authorName,
         postDate:new Date(),
@@ -250,7 +250,7 @@ router.post("/updatePost",function(req,res){
         }); 
  });
 router.get("/readPost",function(req,res){
-    Post.find({author:req.query.id},function(err,post){
+    Post.find({author_id:req.query.id},function(err,post){
         if(err){
         console.log(err)
         }

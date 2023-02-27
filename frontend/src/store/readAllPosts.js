@@ -13,7 +13,7 @@ export const readAllPost = createAsyncThunk(
       } catch (error) {
         if (error)
         {
-            return rejectWithValue("rejected")
+            return rejectWithValue(error)
         }
         }
       
