@@ -263,7 +263,6 @@ router.get("/readPost",function(req,res){
 router.get("/readAllPost",function(req,res){
     Post.find({},function(err,post){
         if(err){
-        res.send(err)
         console.log(err)
         }
         else if(post){

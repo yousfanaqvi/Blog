@@ -51,9 +51,9 @@ function Newpost() {
     const { loading,Response,userInfo} = useSelector((state) => state.user);
   
     const dispatch = useDispatch();
-    useEffect(() => {
-      dispatch(userActions.reset());
-    }, [])
+    // useEffect(() => {
+    //   dispatch(userActions.reset());
+    // }, [])
     const [editorState, setEditorState] = React.useState(
         () => EditorState.createEmpty(),
       );
@@ -65,6 +65,7 @@ function Newpost() {
         setConvertedContent(JSON.stringify(html))
         if(Response==="post successful")
         {
+            dispatch(userActions.reset());
             navigate("/profile")
         }
     
