@@ -51,8 +51,8 @@ function EditProfile( props) {
     useEffect(() => {
       if(editpicResponse){
         dispatch(getUserDetails()) 
-        dispatch(userActions.reset());
         navigate("/profile") 
+        dispatch(userActions.reset());
       }
       
     },[editpicResponse])

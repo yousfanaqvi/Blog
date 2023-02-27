@@ -27,7 +27,7 @@ export default function Profile() {
           <button className='addPost-btn' onClick={()=>navigate("/newpost")}>New post</button>
         </Box>
       </div>
-      <Box sx={{ width: '100%', height:'90%', overflowY:'scroll', justifyContent:'center', mt:'0.5rem',backgroundColor:'#E5E0FF', mb:'2rem'}}>
+      <Box sx={{ width: '100%', height:'max-content', overflowY:'scroll', justifyContent:'center', mt:'0.5rem',backgroundColor:'#E5E0FF', mb:'2rem'}}>
        
         <PostCard/>
       </Box>
