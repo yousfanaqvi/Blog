@@ -9,10 +9,10 @@ import { userActions } from '../store/userSlice';
 import { TextField } from '@mui/material';
 function Blog() {
   const dispatch = useDispatch()
-  const { posts, loading, error} = useSelector((state) => state.user)
   useEffect(()=>{
     dispatch(readAllPost());
   },[]);
+  const { posts, loading, error} = useSelector((state) => state.user)
   console.log(error)
 
   const categories = [

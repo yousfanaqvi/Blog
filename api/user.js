@@ -269,6 +269,7 @@ router.get("/readAllPost",function(req,res){
         else if(post){
             res.send(post)
         }
+       
     })   
     
 });

@@ -176,7 +176,7 @@ const userSlice= createSlice({
         state.loading = false
         state.error = payload
       },
-      /////////////////////////////read post///////////////////////////
+      /////////////////////////////read  post///////////////////////////
       [readAllPost.pending]: (state) => {
         state.loading = true
       },
