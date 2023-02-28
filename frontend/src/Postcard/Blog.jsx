@@ -9,10 +9,11 @@ import { userActions } from '../store/userSlice';
 import { TextField } from '@mui/material';
 function Blog() {
   const dispatch = useDispatch()
+  
+  const { posts, loading, error} = useSelector((state) => state.user)
   useEffect(()=>{
     dispatch(readAllPost());
   },[]);
-  const { posts, loading, error} = useSelector((state) => state.user)
   console.log(error)
 
   const categories = [
@@ -102,6 +103,8 @@ function Blog() {
     
     {category!==''?
     <>
+    <Box sx={{ width: '100%', height:'100%', overflowY:'scroll', display:'flex',
+                 flexDirection:'row',flexWrap:'wrap' , justifyContent:'center', pt:'4rem',}}> 
     {posts.filter(post => post.category.includes(category)).map(filteredcategory => (
       <div className='card' key={filteredcategory.id}>
         <img src={`data:image/image/png;base64, ${Buffer.from(filteredcategory.img.data).toString('base64')}`} style={{width:'200px', height:'150px', borderRadius:'10%'}}></img>
@@ -109,6 +112,7 @@ function Blog() {
         <button onClick={()=>navigate("/post", { state: { post:filteredcategory } })} className='readmore-btn' >read more..</button>
       </div>
      ))}
+     </Box>
     </>:null
     }
 
