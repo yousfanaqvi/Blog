@@ -1,18 +1,23 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import "./Profile.css"
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Avatar } from '@mui/material';
 import Box from '@mui/material/Box';
 import PostCard from '../Postcard/PostCard';
 import {useNavigate} from "react-router-dom"
-
+import { userActions } from '../store/userSlice';
 export default function Profile() {
 
     const navigate=useNavigate();
+    const dispatch=useDispatch();
     const { userInfo } = useSelector((state) => state.user)
     var img=`data:image/image/png;base64, ${Buffer.from(userInfo.img.data).toString('base64')}`;
     var fname= userInfo.fname.charAt(0).toUpperCase() + userInfo.fname.slice(1);
     var lname=userInfo.lname.charAt(0).toUpperCase() + userInfo.lname.slice(1);
+
+    useEffect (()=>{
+      dispatch(userActions.resetEditResponse());
+  },[])
   return (
     <>
    
@@ -31,8 +36,7 @@ export default function Profile() {
                  flexDirection:'row',flexWrap:'wrap' , justifyContent:'center',backgroundColor:'#E5E0FF' ,mt:'2rem', p:'2rem'}}> 
         <PostCard/>
       </Box>
-      {/* <Box sx={{ width: '80%', height:'max-content', overflowY:'scroll', justifyContent:'center', mt:'0.5rem',backgroundColor:'#E5E0FF', m:'2rem'}}> */}
-      {/* </Box> */}
+     
     </div>
     
   </div>

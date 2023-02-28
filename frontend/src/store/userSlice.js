@@ -36,6 +36,9 @@ const userSlice= createSlice({
           state.error=null
           state.posts=null
         },
+        resetEditResponse(state){
+          state.editpicResponse=null
+        },
         logout(state){
           localStorage.removeItem('sessionId') // deletes token from storage
           state.loading = false

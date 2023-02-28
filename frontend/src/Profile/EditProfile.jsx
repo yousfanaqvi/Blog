@@ -52,7 +52,6 @@ function EditProfile( props) {
       if(editpicResponse){
         dispatch(getUserDetails()) 
         navigate("/profile") 
-        dispatch(userActions.reset());
       }
       
     },[editpicResponse])
