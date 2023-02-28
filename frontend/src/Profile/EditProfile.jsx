@@ -172,7 +172,7 @@ function EditProfile( props) {
         </div>
         <div sx={{width:'100vw'}} >
           <TabPanel value="1" id="links">
-          <Alert severity='info'>You will be logged out after deleting your account</Alert>
+          <Alert severity='info'>You will be logged out after editing your account</Alert>
             <form className='edit-form' onSubmit={sendData} >
               <TextField fullWidth id="standard-basic" name="fname" label="First name" type="text" variant="standard"
                 value={formData.fname}
@@ -187,7 +187,7 @@ function EditProfile( props) {
 
           <TabPanel value="2" id="links">
             <form className='edit-form' onSubmit={sendPic} encType="multipart/form-data">
-            <Alert severity='info'>You will be logged out after deleting your account</Alert>
+            <Alert severity='info'>You will be logged out after editing your account</Alert>
               <Avatar src={img} sx={{width:150,height:150, m:1}}></Avatar>
                 <input type="file" name="image" id="image" onChange={handleImgChange}></input>
                 {editpicResponse?editpicResponse:null}
