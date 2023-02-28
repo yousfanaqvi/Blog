@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Routes,Route} from "react-router-dom"
 import {useDispatch, useSelector } from 'react-redux';
 import ProtectedRoute from './Protectedroute';
 import EditProfile from './Profile/EditProfile';
+import {readAllPost} from "../src/store/readAllPosts"
 import { getUserDetails } from '../src/store/getUser';
 import Newpost from './Postcard/Newpost';
 import Post from './Postcard/Post';
@@ -23,7 +24,9 @@ function App() {
   console.log("userInfo"+userInfo)
   useEffect(() => {
     if (sessionId) {
-      dispatch(getUserDetails())      
+      dispatch(getUserDetails()) 
+      dispatch(readAllPost());
+     
     }
   }, [sessionId, dispatch])
   return (

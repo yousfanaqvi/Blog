@@ -50,13 +50,13 @@
     justify-content: left;
     align-items: flex-start;
     width: 350px;
-    margin-left: 7rem;
+    margin-left: 8rem;
     
 }
 .home-container{
     display: flex;
     flex-direction: row;
-    margin-right: 7rem;
+    margin-right: 8rem;
     align-items: center;
     justify-content: center;
 }
