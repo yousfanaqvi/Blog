@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.20af2033.css",
-    "main.js": "/static/js/main.3577d2f9.js",
-    "static/media/reg.jpg": "/static/media/reg.7dda5167606025140fa3.jpg",
-    "static/media/r3.jpg": "/static/media/r3.d7fc1e246f39ce3c0d57.jpg",
-    "static/media/cesar-couto-Kg2M24Pr9aU-unsplash.jpg": "/static/media/cesar-couto-Kg2M24Pr9aU-unsplash.0fbf096ee30b342da29c.jpg",
-    "static/media/r2.jpg": "/static/media/r2.f30d4a8146be8b335803.jpg",
+    "main.css": "/static/css/main.c7b056d0.css",
+    "main.js": "/static/js/main.3baa9eaf.js",
+    "static/media/r3.jpg": "/static/media/r3.6c71b2c22d3fc91e2c45.jpg",
+    "static/media/reg.jpg": "/static/media/reg.4bb52514695d2a292c55.jpg",
+    "static/media/r2.jpg": "/static/media/r2.e7bb503e78c538da27db.jpg",
+    "static/media/cesar-couto-Kg2M24Pr9aU-unsplash.jpg": "/static/media/cesar-couto-Kg2M24Pr9aU-unsplash.260393eddb21aa85777c.jpg",
     "static/media/fp.jpg": "/static/media/fp.5a0c6c2b1f0a805fe4ee.jpg",
     "index.html": "/index.html",
     "static/media/stripes-light.webp": "/static/media/stripes-light.bbaaccfecb4c2f48c22b.webp",
-    "main.20af2033.css.map": "/static/css/main.20af2033.css.map",
-    "main.3577d2f9.js.map": "/static/js/main.3577d2f9.js.map"
+    "main.c7b056d0.css.map": "/static/css/main.c7b056d0.css.map",
+    "main.3baa9eaf.js.map": "/static/js/main.3baa9eaf.js.map"
   },
   "entrypoints": [
-    "static/css/main.20af2033.css",
-    "static/js/main.3577d2f9.js"
+    "static/css/main.c7b056d0.css",
+    "static/js/main.3baa9eaf.js"
   ]
 }

@@ -5,7 +5,7 @@ import "./Register.css"
 import "../Login/Login.css"
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';import { useNavigate } from 'react-router-dom';
+import Select from '@mui/material/Select';
 import { useDispatch, useSelector } from 'react-redux'
 import {registerUser} from "../store/register"
 import AccountBoxIcon from '@mui/icons-material/AccountBox';

@@ -10,7 +10,6 @@ import {BrowserRouter as Router, Routes,Route} from "react-router-dom"
 import {useDispatch, useSelector } from 'react-redux';
 import ProtectedRoute from './Protectedroute';
 import EditProfile from './Profile/EditProfile';
-import {readAllPost} from "../src/store/readAllPosts"
 import { getUserDetails } from '../src/store/getUser';
 import Newpost from './Postcard/Newpost';
 import Post from './Postcard/Post';
@@ -19,7 +18,7 @@ import EditPost from "./Postcard/EditPost"
 function App() {
 
   const dispatch = useDispatch()
-  const { sessionId, userInfo } = useSelector((state) => state.user)
+  const { sessionId } = useSelector((state) => state.user)
   
   useEffect(() => {
     if (sessionId) {
