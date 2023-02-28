@@ -5,13 +5,11 @@ var Register = require('./userSchema');
 var Post = require('./postSchema');
 
 const multer  = require('multer')
-var fs = require('fs');
 var path = require('path');
 const console = require("console");
 const LocalStrategy = require('passport-local').Strategy; 
 
 passport.use(new LocalStrategy(Register.authenticate()));
-// var upload = multer({ dest: 'uploads/' });
 const storage = multer.memoryStorage()
 const upload = multer({ storage: storage })
 passport.serializeUser(Register.serializeUser());

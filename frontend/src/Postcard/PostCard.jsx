@@ -17,7 +17,6 @@ export default function PostCard() {
   useEffect(()=>{
     // dispatch(readPost(userInfo.fname + " " +userInfo.lname));
     dispatch(readPost(userInfo._id));
-
     setDelPost(false)
 
   },[delPost]);

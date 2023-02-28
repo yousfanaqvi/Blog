@@ -20,13 +20,10 @@ function App() {
 
   const dispatch = useDispatch()
   const { sessionId, userInfo } = useSelector((state) => state.user)
-  console.log("session"+sessionId)
-  console.log("userInfo"+userInfo)
+  
   useEffect(() => {
     if (sessionId) {
-      dispatch(getUserDetails()) 
-      dispatch(readAllPost());
-     
+      dispatch(getUserDetails())    
     }
   }, [sessionId, dispatch])
   return (
