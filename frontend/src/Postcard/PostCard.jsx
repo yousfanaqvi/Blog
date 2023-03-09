@@ -48,7 +48,7 @@ export default function PostCard() {
     {posts.map((item) =>(
       <div className='card' key={item.id}>
         <span className='post-btns'>
-          <img src={`data:image/image/png;base64, ${Buffer.from(item.img.data).toString('base64')}`} style={{width:'200px', height:'150px', borderRadius:'10%'}} className='postcard-img'></img>
+          <img src={`data:image/image/png;base64, ${Buffer.from(item.img.data).toString('base64')}`} style={{width:'400px', height:'400px'}} className='postcard-img'></img>
           <span className='post-btns2'>
             <button onClick={()=>navigate("/editpost", { state: { post:item } })} className='editPost-btn' title='edit' ><EditIcon sx={{fontSize:'small'}}></EditIcon></button>
             <button onClick={()=>del(item._id)} className='delPost-btn' title='delete' ><DeleteIcon sx={{fontSize:'small'}}></DeleteIcon></button>

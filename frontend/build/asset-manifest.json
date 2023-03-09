@@ -1,19 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.c7b056d0.css",
-    "main.js": "/static/js/main.3be2a95a.js",
+    "main.css": "/static/css/main.fd3b7a0e.css",
+    "main.js": "/static/js/main.3718b9fc.js",
     "static/media/r3.jpg": "/static/media/r3.6c71b2c22d3fc91e2c45.jpg",
     "static/media/reg.jpg": "/static/media/reg.4bb52514695d2a292c55.jpg",
     "static/media/r2.jpg": "/static/media/r2.e7bb503e78c538da27db.jpg",
-    "static/media/cesar-couto-Kg2M24Pr9aU-unsplash.jpg": "/static/media/cesar-couto-Kg2M24Pr9aU-unsplash.260393eddb21aa85777c.jpg",
     "static/media/fp.jpg": "/static/media/fp.5a0c6c2b1f0a805fe4ee.jpg",
     "index.html": "/index.html",
     "static/media/stripes-light.webp": "/static/media/stripes-light.bbaaccfecb4c2f48c22b.webp",
-    "main.c7b056d0.css.map": "/static/css/main.c7b056d0.css.map",
-    "main.3be2a95a.js.map": "/static/js/main.3be2a95a.js.map"
+    "main.fd3b7a0e.css.map": "/static/css/main.fd3b7a0e.css.map",
+    "main.3718b9fc.js.map": "/static/js/main.3718b9fc.js.map"
   },
   "entrypoints": [
-    "static/css/main.c7b056d0.css",
-    "static/js/main.3be2a95a.js"
+    "static/css/main.fd3b7a0e.css",
+    "static/js/main.3718b9fc.js"
   ]
 }
